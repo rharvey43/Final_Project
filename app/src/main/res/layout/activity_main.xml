@@ -1,25 +1,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical">
-    <LinearLayout android:orientation="vertical"
-        android:layout_width= "wrap_content"
-        android:layout_height= "wrap_content"
-        android:layout_gravity="center">
+    <TextView android:id= "@+id/text1"
+        android:layout_width= "match_parent"
+        android:layout_height= "50dp"
+        android:gravity="center_horizontal"
+        android:text= "Welcome"
+        android:textSize= "36sp"
+        android:textStyle= "bold"
+        android:background="@color/header"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header">
 
-        <TextView android:id= "@+id/text1"
-            android:layout_width= "wrap_content"
-            android:layout_height= "wrap_content"
-            android:text= "Welcome"
-            android:textSize= "16sp"
-            android:textStyle= "bold" />
-
-        <Button android:id= "@+id/btn_location"
+        <Button android:id= "@+id/btn_menu"
             android:layout_width= "wrap_content"
             android:layout_height= "wrap_content"
             android:layout_marginLeft="5dp"
+            android:text= "Menu"
+            android:textSize= "14sp" />
+        <Button android:id= "@+id/btn_coupons"
+            android:layout_width= "wrap_content"
+            android:layout_height= "wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text= "Coupons"
+            android:textSize= "14sp" />
+        <Button android:id= "@+id/btn_location"
+            android:layout_width= "wrap_content"
+            android:layout_height= "wrap_content"
+            android:layout_marginLeft="3dp"
             android:text= "Location"
             android:textSize= "14sp" />
+        <Button android:id= "@+id/btn_sign_up"
+            android:layout_width= "wrap_content"
+            android:layout_height= "wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text= "Sign-Up"
+            android:textSize= "14sp" />
     </LinearLayout>
+
 </LinearLayout>
 

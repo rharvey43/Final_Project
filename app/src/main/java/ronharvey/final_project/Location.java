@@ -3,6 +3,7 @@ package ronharvey.final_project;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -44,6 +45,8 @@ public class Location extends FragmentActivity implements OnMapReadyCallback {
 
         mMap.addMarker(new MarkerOptions().position(PizzaHeaven1).title("Pizza Heaven's First Location"));
         mMap.addMarker(new MarkerOptions().position(PizzaHeaven2).title("Pizza Heaven's Second Location"));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(13));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(PizzaHeaven1));
+
     }
 }

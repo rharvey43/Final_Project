@@ -36,8 +36,10 @@
 
         <activity
             android:name=".Location"
-            android:label="@string/title_activity_location"></activity>
-        <activity android:name=".SignUp"></activity>
+            android:label="@string/title_activity_location" />
+        <activity android:name=".SignUp" />
+        <activity android:name=".Coupons" />
+        <activity android:name=".Menu"></activity>
     </application>
 
 </manifest>
