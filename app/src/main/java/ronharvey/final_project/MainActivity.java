@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btn_menu:
 
-                Intent intent3 = new Intent(MainActivity.this, Menu.class);
+                Intent intent3 = new Intent(MainActivity.this, ronharvey.final_project.Menu.class);
                 startActivity(intent3);
                 break;
 
