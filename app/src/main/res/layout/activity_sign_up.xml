@@ -35,6 +35,7 @@
             android:text="Username:"/>
 
         <EditText
+            android:id="@+id/edit_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -47,6 +48,7 @@
             android:text="Password:"/>
 
         <EditText
+            android:id="@+id/edit_pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -59,6 +61,7 @@
             android:text="Password Confirm:"/>
 
         <EditText
+            android:id="@+id/edit_pass_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -71,6 +74,7 @@
             android:text="Email:"/>
 
         <EditText
+            android:id="@+id/edit_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -83,6 +87,7 @@
             android:text="Street Address:"/>
 
         <EditText
+            android:id="@+id/edit_street"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"

@@ -3,49 +3,74 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical">
-    <TextView android:id= "@+id/text1"
-        android:layout_width= "match_parent"
-        android:layout_height= "50dp"
-        android:gravity="center_horizontal"
-        android:text= "Welcome"
-        android:textSize= "36sp"
-        android:textStyle= "bold"
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:background="@color/header"
-        android:shadowColor= "@color/Shadow"
-        android:textColor="@color/header_text"
+        android:gravity="center_horizontal"
+        android:shadowColor="@color/Shadow"
         android:shadowDx="10"
         android:shadowDy="10"
-        android:shadowRadius="1"/>
+        android:shadowRadius="1"
+        android:text="Welcome"
+        android:textColor="@color/header_text"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/header">
+        android:background="@color/Shadow">
 
-        <Button android:id= "@+id/btn_menu"
-            android:layout_width= "wrap_content"
-            android:layout_height= "wrap_content"
+        <Button
+            android:id="@+id/btn_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text= "Menu"
-            android:textSize= "14sp" />
-        <Button android:id= "@+id/btn_coupons"
-            android:layout_width= "wrap_content"
-            android:layout_height= "wrap_content"
+            android:text="Menu"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_coupons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
-            android:text= "Coupons"
-            android:textSize= "14sp" />
-        <Button android:id= "@+id/btn_location"
-            android:layout_width= "wrap_content"
-            android:layout_height= "wrap_content"
+            android:text="Coupons"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
-            android:text= "Location"
-            android:textSize= "14sp" />
-        <Button android:id= "@+id/btn_sign_up"
-            android:layout_width= "wrap_content"
-            android:layout_height= "wrap_content"
+            android:text="Location"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
-            android:text= "Sign-Up"
-            android:textSize= "14sp" />
+            android:text="Sign-Up"
+            android:textSize="14sp" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/txt_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:layout_gravity="top|right"
+        android:text="Not logged in"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/img_welcome_splash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"/>
 </LinearLayout>
 

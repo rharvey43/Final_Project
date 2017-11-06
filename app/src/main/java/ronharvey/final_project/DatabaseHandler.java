@@ -1,8 +1,13 @@
+package ronharvey.final_project;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import ronharvey.final_project.User;
 
@@ -81,6 +86,32 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
         // return contact
         return user;
+    }
+
+    public List<User> getAllUsers() {
+        List<User> userList = new ArrayList<User>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_USERS;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                User user = new User();
+                user.setID(Integer.parseInt(cursor.getString(0)));
+                user.setName(cursor.getString(1));
+                user.setPassword(cursor.getString(2));
+                user.setEmail(cursor.getString(3));
+                user.setStreet(cursor.getString(4));
+                // Adding contact to list
+                userList.add(user);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return userList;
     }
 
     // Deleting single contact

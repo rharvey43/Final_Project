@@ -9,28 +9,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/header"
-        android:textSize="36dp"
-        android:textStyle="bold"
-        android:shadowColor= "@color/Shadow"
-        android:textColor="@color/header_text"
+        android:gravity="center_horizontal"
+        android:shadowColor="@color/Shadow"
         android:shadowDx="10"
         android:shadowDy="10"
         android:shadowRadius="1"
-        android:gravity="center_horizontal"
-        android:text="Locations" />
+        android:text="Locations"
+        android:textColor="@color/header_text"
+        android:textSize="36dp"
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/list_loc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background"
-        android:layout_weight=".77">
-
-
-    </ListView>
-
-
-
+        android:layout_weight=".77"
+        android:background="@color/background"></ListView>
 
     <fragment
         android:id="@+id/map"
@@ -39,4 +33,4 @@
         android:layout_height="wrap_content"
         android:layout_weight=".33"
         tools:context="ronharvey.final_project.Location" />
-    </LinearLayout>
+</LinearLayout>
