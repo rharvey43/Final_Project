@@ -49,11 +49,11 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/btn_sign_up"
+            android:id="@+id/btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
-            android:text="Sign-Up"
+            android:text="Login"
             android:textSize="14sp" />
     </LinearLayout>
 

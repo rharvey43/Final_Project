@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         final Button btn_location = (Button) findViewById(R.id.btn_location);
         btn_location.setOnClickListener(this);
-        final Button btn_sign_up = (Button) findViewById(R.id.btn_sign_up);
-        btn_sign_up.setOnClickListener(this);
+        final Button btn_login = (Button) findViewById(R.id.btn_login);
+        btn_login.setOnClickListener(this);
         final Button btn_menu = (Button) findViewById(R.id.btn_menu);
         btn_menu.setOnClickListener(this);
         final Button btn_coupons = (Button) findViewById(R.id.btn_coupons);
@@ -39,9 +39,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
 
-            case R.id.btn_sign_up:
+            case R.id.btn_login:
 
-                Intent intent2 = new Intent(MainActivity.this, SignUp.class);
+                Intent intent2 = new Intent(MainActivity.this, Login.class);
                 startActivity(intent2);
                 break;
 

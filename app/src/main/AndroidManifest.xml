@@ -40,6 +40,7 @@
         <activity android:name=".SignUp" />
         <activity android:name=".Coupons" />
         <activity android:name=".Menu" />
+        <activity android:name=".Login"></activity>
     </application>
 
 </manifest>
