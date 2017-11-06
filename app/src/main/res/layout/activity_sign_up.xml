@@ -11,6 +11,11 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:background="@color/header"
+        android:shadowColor= "@color/Shadow"
+        android:textColor="@color/header_text"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="1"
         android:text="Sign-Up"
         android:textSize="36sp" />
 

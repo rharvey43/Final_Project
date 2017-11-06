@@ -39,7 +39,7 @@
             android:label="@string/title_activity_location" />
         <activity android:name=".SignUp" />
         <activity android:name=".Coupons" />
-        <activity android:name=".Menu"></activity>
+        <activity android:name=".Menu" />
     </application>
 
 </manifest>

@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="background">#81f1c8</color>
-    <color name="header">#4e75ba</color>
+    <color name="header">#afbed9</color>
+    <color name="Shadow">#000000</color>
+    <color name="header_text">#c4bfbf</color>
 </resources>

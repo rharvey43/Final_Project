@@ -10,7 +10,12 @@
         android:text= "Welcome"
         android:textSize= "36sp"
         android:textStyle= "bold"
-        android:background="@color/header"/>
+        android:background="@color/header"
+        android:shadowColor= "@color/Shadow"
+        android:textColor="@color/header_text"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="1"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
