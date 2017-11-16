@@ -33,8 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_coupons.setOnClickListener(this);
         final Button btn_logout = (Button) findViewById(R.id.btn_logout);
         btn_logout.setOnClickListener(this);
-        final Button btn_delete = (Button) findViewById(R.id.btn_delete);
-        btn_delete.setOnClickListener(this);
+
 
         ImageView splash = (ImageView) findViewById(R.id.img_welcome_splash);
         splash.setImageResource(R.drawable.welcome_splash);
@@ -70,16 +69,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.btn_logout:
-                Toast toast3 = Toast.makeText(getApplicationContext(), user.getName() + "logged out", Toast.LENGTH_LONG);
-                toast3.show();
-                user = null;
-                tv.setText("Not logged in");
-                break;
-
-            case R.id.btn_delete:
-                Toast toast4 = Toast.makeText(getApplicationContext(), user.getName() + "Deleted", Toast.LENGTH_LONG);
-                toast4.show();
-
+                if (user != null) {
+                    Toast toast3 = Toast.makeText(getApplicationContext(), user.getName() + " logged out", Toast.LENGTH_LONG);
+                    toast3.show();
+                    user = null;
+                    tv.setText("Not logged in");
+                }
+                else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "No one logged in", Toast.LENGTH_LONG);
+                    toast.show();
+                }
                 break;
         }
     }

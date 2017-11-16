@@ -18,6 +18,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     EditText e_name;
     EditText e_pass;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         btn_login_signup.setOnClickListener(this);
         final Button btn_login_submit = (Button) findViewById(R.id.btn_login_submit);
         btn_login_submit.setOnClickListener(this);
+        final Button btn_delete = (Button) findViewById(R.id.btn_delete);
+        btn_delete.setOnClickListener(this);
 
         e_name = (EditText) findViewById(R.id.edit_login_name);
         e_pass = (EditText) findViewById(R.id.edit_login_pass);
@@ -51,13 +54,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 break;
 
             case R.id.btn_login_submit:
-                User user;
                 user = db.getUser(e_name.getText().toString(), e_pass.getText().toString());
 
 
                 if (user == null) {
                     Toast toast3 = Toast.makeText(getApplicationContext(), "Username/password wrong", Toast.LENGTH_LONG);
                     toast3.show();
+                    e_name.setText("");
+                    e_pass.setText("");
 
                     Log.d("Reading: ", "Reading all users..");
                     List<User> users = db.getAllUsers();
@@ -67,8 +71,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         // Writing Contacts to log
                         Log.d("Name: ", log);
                     }
-                }
-                else {
+                } else {
                     String log = "Id: " + user.getID() + " ,Name: " + user.getName() + " ,Pass: " + user.getPassword() + " ,Email: " + user.getEmail() + " ,Street: " + user.getStreet();
                     Log.d("User ", log);
 
@@ -76,6 +79,22 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     i.putExtra("user", user);
                     setResult(RETURN, i);
                     finish();
+                }
+
+                break;
+            case R.id.btn_delete:
+
+                user = db.getUser(e_name.getText().toString(), e_pass.getText().toString());
+                if (user != null) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "User: " + user.getName() + " deleted", Toast.LENGTH_LONG);
+                    toast.show();
+                    db.deleteUser(user);
+                }
+                else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Username/password wrong", Toast.LENGTH_LONG);
+                    toast.show();
+                    e_name.setText("");
+                    e_pass.setText("");
                 }
                 break;
         }

@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="10dp"
         android:background="@color/background"
         android:orientation="horizontal">
 
@@ -67,6 +67,7 @@
             android:id="@+id/btn_login_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:layout_marginLeft="3dp"
             android:text="Cancel"
             android:textSize="14sp" />
@@ -75,6 +76,7 @@
             android:id="@+id/btn_login_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:layout_marginLeft="25dp"
             android:text="Sign-Up"
             android:textSize="14sp" />
@@ -83,8 +85,17 @@
             android:id="@+id/btn_login_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:layout_marginLeft="25dp"
             android:text="Sumbit"
             android:textSize="14sp" />
     </LinearLayout>
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="3dp"
+        android:text="Delete User"
+        android:textSize="14sp" />
 </LinearLayout>
