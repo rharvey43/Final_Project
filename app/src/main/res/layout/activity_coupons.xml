@@ -18,4 +18,60 @@
         android:textColor="@color/header_text"
         android:textSize="36dp"
         android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rad_coupon">
+
+         <RadioButton
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/rad_five_off"
+             android:text="$5 off over $20 purchase"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rad_two_liter"
+                android:text="2 iter pepsi over $15 purchase"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rad_kids_meal"
+                android:text="free kids meal over $25 purchase"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rad_fift_off"
+                android:text="50% off on Tuesdays"/>
+
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+     <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/bttn_cancel"
+         android:text="Cancel"
+         android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bttn_save"
+            android:text="Save"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
 </LinearLayout>
