@@ -18,4 +18,47 @@
         android:textColor="@color/header_text"
         android:textSize="36dp"
         android:textStyle="bold" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/meat"
+            android:text="Meat Lovers"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bbq"
+            android:text="BBQ Chicken"
+            android:layout_alignBaseline="@id/meat"
+            android:layout_toRightOf="@id/meat"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cheese6"
+            android:text="6-Cheeses"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/meat"
+            android:layout_alignParentLeft="true"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/custom_pizza"
+            android:text="Custom"
+            android:layout_alignBaseline="@id/cheese6"
+            android:layout_toRightOf="@id/cheese6"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignStart="@id/bbq"
+            android:layout_alignLeft="@id/bbq"/>
+
+    </RelativeLayout>
 </LinearLayout>
