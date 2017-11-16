@@ -5,10 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
     DatabaseHandler db = new DatabaseHandler(this);
+    EditText e_name;
+    EditText e_pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         btn_login_signup.setOnClickListener(this);
         final Button btn_login_submit = (Button) findViewById(R.id.btn_login_submit);
         btn_login_submit.setOnClickListener(this);
+
+        e_name = (EditText) findViewById(R.id.edit_login_name);
+        e_pass = (EditText) findViewById(R.id.edit_login_pass);
     }
 
     public void onClick(View v) {
@@ -39,7 +46,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 break;
 
             case R.id.btn_login_submit:
-
+                User user;
+                user = db.getUser(e_name.getText().toString(), e_pass.getText().toString());
+                if (user != null) {
+                    Toast toast3 = Toast.makeText(getApplicationContext(), user.getName(), Toast.LENGTH_SHORT);
+                    toast3.show();
+                }
                 finish();
                 break;
         }
