@@ -3,14 +3,19 @@ package ronharvey.final_project;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
     DatabaseHandler db = new DatabaseHandler(this);
+    private static final int RETURN = 200;
+
     EditText e_name;
     EditText e_pass;
 
@@ -48,11 +53,30 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             case R.id.btn_login_submit:
                 User user;
                 user = db.getUser(e_name.getText().toString(), e_pass.getText().toString());
-                if (user != null) {
-                    Toast toast3 = Toast.makeText(getApplicationContext(), user.getName(), Toast.LENGTH_SHORT);
+
+
+                if (user == null) {
+                    Toast toast3 = Toast.makeText(getApplicationContext(), "Username/password wrong", Toast.LENGTH_LONG);
                     toast3.show();
+
+                    Log.d("Reading: ", "Reading all users..");
+                    List<User> users = db.getAllUsers();
+
+                    for (User cn : users) {
+                        String log = "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Pass: " + cn.getPassword() + " ,Email: " + cn.getEmail() + " ,Street: " + cn.getStreet();
+                        // Writing Contacts to log
+                        Log.d("Name: ", log);
+                    }
                 }
-                finish();
+                else {
+                    String log = "Id: " + user.getID() + " ,Name: " + user.getName() + " ,Pass: " + user.getPassword() + " ,Email: " + user.getEmail() + " ,Street: " + user.getStreet();
+                    Log.d("User ", log);
+
+                    Intent i = new Intent(Login.this, MainActivity.class);
+                    i.putExtra("user", user);
+                    setResult(RETURN, i);
+                    finish();
+                }
                 break;
         }
     }

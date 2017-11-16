@@ -3,12 +3,20 @@ package ronharvey.final_project;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    DatabaseHandler db = new DatabaseHandler(this);
+    private User user;
+    private static final int CODE = 100;
+    private static final int RETURN = 200;
+    private TextView tv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +31,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_menu.setOnClickListener(this);
         final Button btn_coupons = (Button) findViewById(R.id.btn_coupons);
         btn_coupons.setOnClickListener(this);
+        final Button btn_logout = (Button) findViewById(R.id.btn_logout);
+        btn_logout.setOnClickListener(this);
+        final Button btn_delete = (Button) findViewById(R.id.btn_delete);
+        btn_delete.setOnClickListener(this);
 
         ImageView splash = (ImageView) findViewById(R.id.img_welcome_splash);
         splash.setImageResource(R.drawable.welcome_splash);
@@ -42,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_login:
 
                 Intent intent2 = new Intent(MainActivity.this, Login.class);
-                startActivity(intent2);
+                startActivityForResult(intent2, CODE);
                 break;
 
             case R.id.btn_menu:
@@ -56,6 +68,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent4 = new Intent(MainActivity.this, Coupons.class);
                 startActivity(intent4);
                 break;
+
+            case R.id.btn_logout:
+                Toast toast3 = Toast.makeText(getApplicationContext(), user.getName() + "logged out", Toast.LENGTH_LONG);
+                toast3.show();
+                user = null;
+                tv.setText("Not logged in");
+                break;
+
+            case R.id.btn_delete:
+                Toast toast4 = Toast.makeText(getApplicationContext(), user.getName() + "Deleted", Toast.LENGTH_LONG);
+                toast4.show();
+
+                break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int RequestCode, int resultCode, Intent data) {
+
+        tv = (TextView) findViewById(R.id.txt_user);
+
+        if (RequestCode == CODE && resultCode == RETURN) {
+            user = data.getParcelableExtra("user");
+        }
+
+        if (user != null)
+        {
+
+            tv.setText("Welcome " + user.getName());
+        }
+        else {
+            tv.setText("Not Logged In");
         }
     }
 }
