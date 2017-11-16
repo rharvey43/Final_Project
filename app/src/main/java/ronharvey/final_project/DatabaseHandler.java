@@ -88,6 +88,23 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return user;
     }
 
+    public User getUser(String name, String pass) {
+        User user;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_USERS, new String[]{KEY_ID,
+                        KEY_NAME, KEY_PASS, KEY_EMAIL, KEY_STREET}, (KEY_NAME + "=?" + " AND " + KEY_PASS + "=?"),
+                new String[]{String.valueOf(name), String.valueOf(pass)}, null, null, null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            user = new User(Integer.parseInt(cursor.getString(0)),
+                    cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+        } else {
+            user = null;
+        }
+        // return contact
+        return user;
+    }
+
     public List<User> getAllUsers() {
         List<User> userList = new ArrayList<User>();
         // Select All Query

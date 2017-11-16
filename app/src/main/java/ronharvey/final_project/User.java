@@ -1,10 +1,13 @@
 package ronharvey.final_project;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Ron on 11/5/2017.
  */
 
-public class User {
+public class User implements Parcelable {
 
     //private variables
     int _id;
@@ -79,5 +82,36 @@ public class User {
     // setting password
     public void setStreet(String street){
         this._street = street;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeString(this.getName());
+        out.writeString(this.getPassword());
+        out.writeString(this.getEmail());
+        out.writeString(this.getStreet());
+    }
+
+    public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
+
+    // example constructor that takes a Parcel and gives you an object populated with it's values
+    private User(Parcel in) {
+        this.setName(in.readString());
+        this.setPassword(in.readString());
+        this.setEmail(in.readString());
+        this.setStreet(in.readString());
     }
 }
