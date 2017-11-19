@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btn_coupons:
 
-                Intent intent4 = new Intent(MainActivity.this, Coupons.class);
+                Intent intent4 = new Intent(MainActivity.this, Payment.class);
+                intent4.putExtra("login", user);
                 startActivity(intent4);
                 break;
 

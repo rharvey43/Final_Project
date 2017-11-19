@@ -1,0 +1,117 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header"
+        android:gravity="center_horizontal"
+        android:shadowColor="@color/Shadow"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="1"
+        android:text="Payment"
+        android:textColor="@color/header_text"
+        android:textSize="36sp" />
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/background"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        android:rowCount="6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CardType::"
+            android:textSize="14sp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Card Number:"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edit_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="credit card # here"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CVV:"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edit_pass_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="CVV here"
+            android:textSize="14sp" />
+
+    </GridLayout>
+
+    <RadioGroup
+        android:id="@+id/rb_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/pickup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pick-up"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/delivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="clip_horizontal"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:text="Place Order"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txt_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="4"
+        android:text="aaaa" />
+
+</LinearLayout>
