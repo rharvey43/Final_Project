@@ -64,6 +64,7 @@ public class Customize extends AppCompatActivity {
 
          if(type.equals("BBQ")) {
              v.setImageResource(R.drawable.bbq);
+
              unit_p=8.0;
 
 
