@@ -82,6 +82,11 @@ public class Customize extends AppCompatActivity {
                     counter+=1;
                 }
 
+                else {
+                    boo_pepperoni=false;
+                    counter-=1;
+                }
+
             }
         });
         pineapple.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
@@ -92,6 +97,10 @@ public class Customize extends AppCompatActivity {
                 {
                     boo_pineapple=true;
                     counter+=1;
+                }
+                else {
+                    boo_pineapple=false;
+                    counter-=1;
                 }
 
             }
@@ -106,6 +115,11 @@ public class Customize extends AppCompatActivity {
                     counter+=1;
                 }
 
+                else {
+                    boo_onions=false;
+                    counter-=1;
+                }
+
             }
         });
         peppers.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
@@ -118,16 +132,35 @@ public class Customize extends AppCompatActivity {
                     counter += 1;
                 }
 
+                else {
+                    boo_peppers=false;
+                    counter-=1;
+                }
+
             }
         });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(boo_pepperoni==true) v.setImageResource(R.drawable.meat);
-                if(boo_onions==true) {v.setImageResource(R.drawable.cheese);}
-                if(boo_pineapple==true) {v.setImageResource(R.drawable.cheese);}
-                if(boo_peppers==true) {v.setImageResource(R.drawable.bbq);}
+
+                if (boo_pepperoni == true && boo_onions == true && boo_pineapple == true && boo_peppers == true) {
+                    v.setImageResource(R.drawable.meat);
+                }
+                else if (boo_pepperoni == true && boo_onions == false && boo_pineapple == true && boo_peppers == true) {
+                    v.setImageResource(R.drawable.bbq);
+                }
+                else if (boo_pepperoni == true && boo_onions == true && boo_pineapple == false && boo_peppers == true) {
+                    v.setImageResource(R.drawable.cheese);
+                }
+                else if (boo_pepperoni == true && boo_onions == true && boo_pineapple == true && boo_peppers == false) {
+                    v.setImageResource(R.drawable.meat);
+                }
+
+                //if(boo_pepperoni==true) v.setImageResource(R.drawable.meat);
+                //if(boo_onions==true) {v.setImageResource(R.drawable.cheese);}
+                //if(boo_pineapple==true) {v.setImageResource(R.drawable.cheese);}
+                //if(boo_peppers==true) {v.setImageResource(R.drawable.bbq);}
                 //if(boo_pepperoni==true && boo_onions==true  ) v.setImageResource(R.drawable.bbq);
             }
         });

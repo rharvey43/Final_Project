@@ -24,11 +24,13 @@ public class Payment extends Activity implements View.OnClickListener{
     private RadioButton delivery;
     private String radioChoice;
     private TextView tv;
-    private User user = getIntent().getExtras().getParcelable("login");
+    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
+        user = getIntent().getExtras().getParcelable("login");
         final Button btn_login_order = (Button) findViewById(R.id.btn_order);
         btn_login_order.setOnClickListener(this);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -36,11 +38,11 @@ public class Payment extends Activity implements View.OnClickListener{
         tv = (TextView) findViewById(R.id.txt_order);
         rG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (i == R.id.pickup) {
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                if (checkedId == R.id.pickup) {
                     radioChoice ="pickup";
                 }
-                else {
+                else if(checkedId == R.id.delivery){
                     radioChoice = "delivery";
                 }
             }
@@ -65,7 +67,13 @@ public class Payment extends Activity implements View.OnClickListener{
         switch (v.getId()) {
 
             case R.id.btn_order:
-                tv.setText(user.getName() + " your order is::w");
+
+                if (radioChoice.equals("delivery")) {
+                    tv.setText(user.getName() + " your order is::\n" + "Your order is being delivered to: " + user.getStreet());
+                }
+                else if (radioChoice.equals("pickup")) {
+                    tv.setText(user.getName() + "your order is ready to be picked up in 15 minutes");
+                }
                 break;
         }
     }
