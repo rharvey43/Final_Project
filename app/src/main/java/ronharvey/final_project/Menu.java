@@ -11,7 +11,8 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
 
     String pizza_choice ="";
     double unit_price;
-    static final int RETURN=150;
+    static final int RETURN2=150;
+    static final int SEND=330;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +39,8 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
                 unit_price=8.0;
                 Intent intent = new Intent(Menu.this, Customize.class);
                 intent.putExtra("PIZZA_TYPE",pizza_choice);
-                intent.putExtra("UNIT_PRICE",unit_price);
-                setResult(RETURN,intent);
+                intent.putExtra("UNIT_PRICE",Double.toString(unit_price));
+                //setResult(RETURN2,intent);
                 startActivity(intent);
                 finish();
                 break;
@@ -49,10 +50,10 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
 
                 pizza_choice="BBQ";
                 unit_price=8.0;
-                Intent intent2 = new Intent(Menu.this, Customize.class);
+                Intent intent2 = new Intent(Menu.this,  Customize.class);
                 intent2.putExtra("PIZZA_TYPE",pizza_choice);
-                intent2.putExtra("UNIT_PRICE",unit_price);
-                setResult(RETURN,intent2);
+                intent2.putExtra("UNIT_PRICE",Double.toString(unit_price));
+                //setResult(RETURN2,intent2);
                 startActivity(intent2);
                 finish();
                 break;
@@ -61,10 +62,10 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
 
                 pizza_choice="CHEESE";
                 unit_price=6.0;
-                Intent intent3 = new Intent(Menu.this, Customize.class);
+                Intent intent3 = new Intent(Menu.this,  Customize.class);
                 intent3.putExtra("PIZZA_TYPE",pizza_choice);
-                intent3.putExtra("UNIT_PRICE",unit_price);
-                setResult(RETURN,intent3);
+                intent3.putExtra("UNIT_PRICE",Double.toString(unit_price));
+                //setResult(RETURN2,intent3);
                 startActivity(intent3);
                 finish();
                 break;
@@ -73,10 +74,10 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
 
                 pizza_choice="CUSTOM";
                 unit_price=4.0;
-                Intent intent4 = new Intent(Menu.this, Customize.class);
+                Intent intent4 = new Intent(Menu.this,  Customize.class);
                 intent4.putExtra("PIZZA_TYPE",pizza_choice);
-                intent4.putExtra("UNIT_PRICE",unit_price);
-                setResult(RETURN,intent4);
+                intent4.putExtra("UNIT_PRICE",Double.toString(unit_price));
+                //setResult(RETURN2,intent4);
                 startActivity(intent4);
                 finish();
                 break;

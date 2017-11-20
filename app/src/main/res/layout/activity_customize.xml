@@ -19,4 +19,84 @@
         android:textColor="@color/header_text"
         android:textSize="36dp"
         android:textStyle="bold" />
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select the Toppings"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chk_pepperoni"
+            android:text="Pepperoni" />
+            <!--android:onClick="onCheckBoxClicked"/> -->
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Onions"
+            android:id="@+id/chk_onions"/>
+            <!--android:onClick="onCheckBoxClicked"/>-->
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pineapple"
+            android:id="@+id/chk_pineapple"/>
+            <!--android:onClick="onCheckBoxClicked"/>-->
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peppers"
+            android:id="@+id/chk_peppers"/>
+           <!-- android:onClick="onCheckBoxClicked"/>-->
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bttn_cancel"
+            android:text="Cancel"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bttn_submit"
+            android:text="submit"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bttn_payment"
+            android:text="payment"/>
+
+
+
+
+
+        </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/v1"
+        android:layout_gravity="bottom"/>
+
+    </LinearLayout>
+
+
+
+
