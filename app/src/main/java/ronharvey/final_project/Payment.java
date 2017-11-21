@@ -24,9 +24,10 @@ public class Payment extends Activity implements View.OnClickListener{
     private RadioButton delivery;
     private String radioChoice;
     private TextView tv;
-    private User user = getIntent().getExtras().getParcelable("login");
+    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        user = getIntent().getExtras().getParcelable("login");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
         final Button btn_login_order = (Button) findViewById(R.id.btn_order);
