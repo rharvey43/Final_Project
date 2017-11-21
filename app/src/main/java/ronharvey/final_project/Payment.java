@@ -40,6 +40,7 @@ public class Payment extends Activity implements View.OnClickListener{
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
         rG = (RadioGroup) findViewById(R.id.rb_group);
         tv = (TextView) findViewById(R.id.txt_order);
+        tv.setText(user.getName() + " " + totalprice);
         rG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
@@ -52,6 +53,7 @@ public class Payment extends Activity implements View.OnClickListener{
             }
         });
         pickup = (RadioButton) findViewById(R.id.pickup);
+        pickup.setEnabled(true);
         delivery = (RadioButton) findViewById(R.id.delivery);
 
 
