@@ -43,7 +43,7 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
                 intent.putExtra("PIZZA_TYPE",pizza_choice);
                 intent.putExtra("UNIT_PRICE",Double.toString(unit_price));
 
-                intent.putExtra("login", user);
+                intent.putExtra("loginM1", user);
                 //setResult(RETURN2,intent);
                 startActivity(intent);
                 finish();
@@ -58,7 +58,7 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
                 intent2.putExtra("PIZZA_TYPE",pizza_choice);
                 intent2.putExtra("UNIT_PRICE",Double.toString(unit_price));
 
-                intent2.putExtra("login", user);
+                intent2.putExtra("loginM2", user);
                 //setResult(RETURN2,intent2);
                 startActivity(intent2);
                 finish();
@@ -71,6 +71,8 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
                 Intent intent3 = new Intent(Menu.this,  Customize.class);
                 intent3.putExtra("PIZZA_TYPE",pizza_choice);
                 intent3.putExtra("UNIT_PRICE",Double.toString(unit_price));
+
+                intent3.putExtra("loginM3", user);
                 //setResult(RETURN2,intent3);
                 startActivity(intent3);
                 finish();
@@ -84,7 +86,7 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
                 intent4.putExtra("PIZZA_TYPE",pizza_choice);
                 intent4.putExtra("UNIT_PRICE",Double.toString(unit_price));
 
-                intent4.putExtra("login", user);
+                intent4.putExtra("loginM4", user);
                 //setResult(RETURN2,intent4);
                 startActivity(intent4);
                 finish();

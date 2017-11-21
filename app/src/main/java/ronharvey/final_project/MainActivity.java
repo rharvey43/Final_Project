@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (user == null){
                     user.setName("guest");
+                    user.setPassword("a");
                     user.setEmail("None Given");
                     user.setStreet("Not Set");
                 }
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (user == null){
                     user.setName("guest");
+                    user.setPassword("a");
                     user.setEmail("None Given");
                     user.setStreet("Not Set");
                 }
