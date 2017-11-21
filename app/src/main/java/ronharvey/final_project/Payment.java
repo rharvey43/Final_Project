@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,11 +72,26 @@ public class Payment extends Activity implements View.OnClickListener{
 
             case R.id.btn_order:
 
-                if (radioChoice.equals("delivery")) {
-                    tv.setText(user.getName() + " your order is::\n" + "Your order is being delivered to: " + user.getStreet());
+                if (cardNum.getText().toString().equals("")) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "No CreditCard entered", Toast.LENGTH_LONG);
+                    toast.show();
                 }
-                else if (radioChoice.equals("pickup")) {
-                    tv.setText(user.getName() + "your order is ready to be picked up in 15 minutes");
+                else if (cvv.getText().toString().equals("")) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "No CVV entered", Toast.LENGTH_LONG);
+                    toast.show();
+                }
+                else {
+                    if (radioChoice.equals("delivery")) {
+                        tv.setText(user.getName()+"\n" +
+                                "Your order total is " + totalprice +  " and being delivered in 15 minutes to: " + user.getStreet() +"\n" +
+                                "Email receipt is being (fake) sent to " + user.getEmail());
+                    }
+                    else if (radioChoice.equals("pickup")) {
+
+                        tv.setText(user.getName()+"\n" +
+                                        "Your order total is " + totalprice +  " and is ready to be picked up in 15 minutes\n" +
+                                        "Email receipt is being (fake) sent to " + user.getEmail());
+                    }
                 }
                 break;
         }
