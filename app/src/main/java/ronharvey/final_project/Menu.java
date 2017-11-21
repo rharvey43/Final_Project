@@ -17,9 +17,10 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        user = getIntent().getExtras().getParcelable("login");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        user = getIntent().getExtras().getParcelable("login");
+        //user = getIntent().getExtras().getParcelable("login");
       final Button bttn_meat = (Button) findViewById(R.id.meat);
       bttn_meat.setOnClickListener(this);
       final Button bttn_bbq = (Button) findViewById(R.id.bbq);
