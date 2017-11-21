@@ -23,7 +23,7 @@ public class Customize extends AppCompatActivity {
     String toppings="";
     String type ="";
     double total_price=0.0;
-    int counter=0;
+    double counter=0;
     boolean boo_pepperoni = false;
     boolean boo_pineapple = false;
     boolean boo_peppers = false;
@@ -40,19 +40,23 @@ public class Customize extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customize);
 
-        user = getIntent().getExtras().getParcelable("login");
+        user = getIntent().getExtras().getParcelable("loginM");
 
         CheckBox pepperoni = (CheckBox)findViewById(R.id.chk_pepperoni);
         pepperoni.setChecked(true);
+        counter += 1;
         boo_pepperoni=true;
         CheckBox pineapple = (CheckBox)findViewById(R.id.chk_pineapple);
         pineapple.setChecked(true);
         boo_pineapple=true;
+        counter += 1;
         CheckBox peppers = (CheckBox)findViewById(R.id.chk_peppers);
         boo_peppers=true;
+        counter += 1;
         peppers.setChecked(true);
         CheckBox onions = (CheckBox)findViewById(R.id.chk_onions);
         onions.setChecked(true);
+        counter += 1;
         boo_onions=true;
         final ImageView v= (ImageView) findViewById(R.id.v1);
         final Button submit= (Button) findViewById(R.id.bttn_submit);
@@ -250,7 +254,7 @@ public class Customize extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent2= new Intent(Customize.this,Payment.class);
-                intent2.putExtra("TOATL_PRICE",Double.toString(total_price));
+                intent2.putExtra("TOTAL_PRICE",Double.toString(total_price));
                 intent2.putExtra("login", user);
                 startActivity(intent2);
             }

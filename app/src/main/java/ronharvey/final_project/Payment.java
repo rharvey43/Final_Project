@@ -38,6 +38,8 @@ public class Payment extends Activity implements View.OnClickListener{
         final Button btn_login_order = (Button) findViewById(R.id.btn_order);
         btn_login_order.setOnClickListener(this);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        cardNum = (EditText) findViewById(R.id.edit_card);
+        cvv = (EditText) findViewById(R.id.edit_cvv);
         rG = (RadioGroup) findViewById(R.id.rb_group);
         tv = (TextView) findViewById(R.id.txt_order);
         tv.setText(user.getName() + " " + totalprice);
@@ -84,15 +86,11 @@ public class Payment extends Activity implements View.OnClickListener{
                 }
                 else {
                     if (radioChoice.equals("delivery")) {
-                        tv.setText(user.getName()+"\n" +
-                                "Your order total is " + totalprice +  " and being delivered in 15 minutes to: " + user.getStreet() +"\n" +
-                                "Email receipt is being (fake) sent to " + user.getEmail());
+                        tv.setText(user.getName()+"\n" + "Your order total is " + totalprice +  " and being delivered in 15 minutes to: " + user.getStreet() +"\n" + "Email receipt is being sent to " + user.getEmail());
                     }
                     else if (radioChoice.equals("pickup")) {
 
-                        tv.setText(user.getName()+"\n" +
-                                        "Your order total is " + totalprice +  " and is ready to be picked up in 15 minutes\n" +
-                                        "Email receipt is being (fake) sent to " + user.getEmail());
+                        tv.setText(user.getName()+"\n" + "Your order total is " + totalprice +  " and is ready to be picked up in 15 minutes\n" + "Email receipt is being sent to " + user.getEmail());
                     }
                 }
                 break;
