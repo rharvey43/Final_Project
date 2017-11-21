@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     user.setStreet("Not Set");
                 }
                 Intent intent3 = new Intent(MainActivity.this, ronharvey.final_project.Menu.class);
+                intent3.putExtra("loginMain", user);
                 startActivity(intent3);
                 break;
 
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     user.setStreet("Not Set");
                 }
                 Intent intent4 = new Intent(MainActivity.this, Coupons.class);
-                intent4.putExtra("login", user);
+                intent4.putExtra("loginMain", user);
                 startActivity(intent4);
                 break;
 
