@@ -58,13 +58,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btn_menu:
 
+                if (user == null){
+                    user.setName("guest");
+                    user.setEmail("None Given");
+                    user.setStreet("Not Set");
+                }
                 Intent intent3 = new Intent(MainActivity.this, ronharvey.final_project.Menu.class);
                 startActivity(intent3);
                 break;
 
             case R.id.btn_coupons:
 
-                Intent intent4 = new Intent(MainActivity.this, Payment.class);
+                if (user == null){
+                    user.setName("guest");
+                    user.setEmail("None Given");
+                    user.setStreet("Not Set");
+                }
+                Intent intent4 = new Intent(MainActivity.this, Coupons.class);
                 intent4.putExtra("login", user);
                 startActivity(intent4);
                 break;

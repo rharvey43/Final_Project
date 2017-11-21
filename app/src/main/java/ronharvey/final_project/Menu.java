@@ -13,11 +13,13 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
     double unit_price;
     static final int RETURN2=150;
     static final int SEND=330;
+    User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
+        user = getIntent().getExtras().getParcelable("login");
       final Button bttn_meat = (Button) findViewById(R.id.meat);
       bttn_meat.setOnClickListener(this);
       final Button bttn_bbq = (Button) findViewById(R.id.bbq);
@@ -40,6 +42,8 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
                 Intent intent = new Intent(Menu.this, Customize.class);
                 intent.putExtra("PIZZA_TYPE",pizza_choice);
                 intent.putExtra("UNIT_PRICE",Double.toString(unit_price));
+
+                intent.putExtra("login", user);
                 //setResult(RETURN2,intent);
                 startActivity(intent);
                 finish();
@@ -53,6 +57,8 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
                 Intent intent2 = new Intent(Menu.this,  Customize.class);
                 intent2.putExtra("PIZZA_TYPE",pizza_choice);
                 intent2.putExtra("UNIT_PRICE",Double.toString(unit_price));
+
+                intent2.putExtra("login", user);
                 //setResult(RETURN2,intent2);
                 startActivity(intent2);
                 finish();
@@ -77,6 +83,8 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
                 Intent intent4 = new Intent(Menu.this,  Customize.class);
                 intent4.putExtra("PIZZA_TYPE",pizza_choice);
                 intent4.putExtra("UNIT_PRICE",Double.toString(unit_price));
+
+                intent4.putExtra("login", user);
                 //setResult(RETURN2,intent4);
                 startActivity(intent4);
                 finish();
