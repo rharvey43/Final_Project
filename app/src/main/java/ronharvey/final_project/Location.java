@@ -38,6 +38,7 @@ public class Location extends FragmentActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        //gets list and sets adapter
         listView = (ListView) findViewById(R.id.list_loc);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -45,6 +46,7 @@ public class Location extends FragmentActivity implements OnMapReadyCallback {
 
         listView.setAdapter(adapter);
 
+        //when listitem clicked, move map lccation and add pin, clear other pins
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -109,7 +111,6 @@ public class Location extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
         //PizzaHeaven1 = new LatLng(41.864584, -87.624905);
         //LatLng PizzaHeaven2 = new LatLng(41.871452, -87.627124);
 

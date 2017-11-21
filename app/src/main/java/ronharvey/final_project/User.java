@@ -88,7 +88,7 @@ public class User implements Parcelable {
     public int describeContents() {
         return 0;
     }
-
+    //writing the parcel
     @Override
     public void writeToParcel(Parcel out, int flags) {
         out.writeString(this.getName());
@@ -107,7 +107,7 @@ public class User implements Parcelable {
         }
     };
 
-    // example constructor that takes a Parcel and gives you an object populated with it's values
+    // reading the parcel
     private User(Parcel in) {
         this.setName(in.readString());
         this.setPassword(in.readString());

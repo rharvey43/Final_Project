@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //view hooks
         final Button btn_location = (Button) findViewById(R.id.btn_location);
         btn_location.setOnClickListener(this);
         final Button btn_login = (Button) findViewById(R.id.btn_login);
@@ -44,19 +44,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         switch (v.getId()) {
-
+            //sends user to location page
             case R.id.btn_location:
 
                 Intent intent = new Intent(MainActivity.this, Location.class);
                 startActivity(intent);
                 break;
-
+            //sends user to login page
             case R.id.btn_login:
 
                 Intent intent2 = new Intent(MainActivity.this, Login.class);
                 startActivityForResult(intent2, CODE);
                 break;
-
+            //sends user to menu page if user is logged in, else gives error toast
             case R.id.btn_menu:
 
                 if (user == null){
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent3.putExtra("coup", coupon);
                 startActivity(intent3);
                 break;
-
+            //sends user to coupon page if user is logged in, else gives error toast
             case R.id.btn_coupons:
 
                 if (user == null){
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent4.putExtra("loginMain", user);
                 startActivity(intent4);
                 break;
-
+            //logs out current user by setting user to null
             case R.id.btn_logout:
                 if (user != null) {
                     Toast toast3 = Toast.makeText(getApplicationContext(), user.getName() + " logged out", Toast.LENGTH_LONG);
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-
+    //main is looking for the user object result from login
     @Override
     protected void onActivityResult(int RequestCode, int resultCode, Intent data) {
 

@@ -48,7 +48,7 @@ public class Coupons extends AppCompatActivity implements View.OnClickListener{
             }
         });
         fiveoff = (RadioButton) findViewById(R.id.rad_five_off);
-        fiveoff.setEnabled(true);
+        rG.check(R.id.rad_five_off);
         twoliter = (RadioButton) findViewById(R.id.rad_two_liter);
         kids=(RadioButton) findViewById(R.id.rad_kids_meal);
         tues=(RadioButton) findViewById(R.id.rad_fift_off);

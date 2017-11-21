@@ -24,7 +24,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        //hooks up views
         final Button btn_login_cancel = (Button) findViewById(R.id.btn_login_cancel);
         btn_login_cancel.setOnClickListener(this);
         final Button btn_login_signup = (Button) findViewById(R.id.btn_login_signup);
@@ -41,28 +41,28 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
 
         switch (v.getId()) {
-
+            //goes back to activity that called login
             case R.id.btn_login_cancel:
 
                 finish();
                 break;
-
+            //sends user to signup activity
             case R.id.btn_login_signup:
 
                 Intent intent = new Intent(Login.this, SignUp.class);
                 startActivity(intent);
                 break;
-
+            //querys database for username and password looking for a match, if found sends user back to menu, else gives error message through toast
             case R.id.btn_login_submit:
+                //attempts to get user
                 user = db.getUser(e_name.getText().toString(), e_pass.getText().toString());
-
-
+                //if not found give error toast
                 if (user == null) {
                     Toast toast3 = Toast.makeText(getApplicationContext(), "Username/password wrong", Toast.LENGTH_LONG);
                     toast3.show();
                     e_name.setText("");
                     e_pass.setText("");
-
+                    //debugging log
                     Log.d("Reading: ", "Reading all users..");
                     List<User> users = db.getAllUsers();
 
@@ -74,7 +74,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 } else {
                     String log = "Id: " + user.getID() + " ,Name: " + user.getName() + " ,Pass: " + user.getPassword() + " ,Email: " + user.getEmail() + " ,Street: " + user.getStreet();
                     Log.d("User ", log);
-
+                    //sends user to main
                     Intent i = new Intent(Login.this, MainActivity.class);
                     i.putExtra("user", user);
                     setResult(RETURN, i);
@@ -82,6 +82,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 }
 
                 break;
+            //deletes user record in database if username and password matches a record, else gives toast errror
             case R.id.btn_delete:
 
                 user = db.getUser(e_name.getText().toString(), e_pass.getText().toString());
@@ -89,8 +90,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     Toast toast = Toast.makeText(getApplicationContext(), "User: " + user.getName() + " deleted", Toast.LENGTH_LONG);
                     toast.show();
                     db.deleteUser(user);
-                }
-                else {
+                } else {
                     Toast toast = Toast.makeText(getApplicationContext(), "Username/password wrong", Toast.LENGTH_LONG);
                     toast.show();
                     e_name.setText("");

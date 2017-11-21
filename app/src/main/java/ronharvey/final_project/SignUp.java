@@ -30,7 +30,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
+        //view hooks
         final Button btn_cancel = (Button) findViewById(R.id.btn_cancel);
         btn_cancel.setOnClickListener(this);
         final Button btn_submit = (Button) findViewById(R.id.btn_submit);
@@ -47,11 +47,12 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
 
         switch (v.getId()) {
-
+            //goes back to previous activity
             case R.id.btn_cancel:
 
                 finish();
                 break;
+            //submits the values entered into the editTExt fields are inserted into the database if are not blank or the password and password_confirm match
             case R.id.btn_submit:
 
                 Sname = name.getText().toString();

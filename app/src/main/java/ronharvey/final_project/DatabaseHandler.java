@@ -27,7 +27,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Contacts table name
     private static final String TABLE_USERS = "users";
 
-    // Contacts Table Columns names
+    // User Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_PASS = "password";
@@ -72,7 +72,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close(); // Closing database connection}
     }
 
-    // Getting single contact
+    // Getting single user by id
     public User getUser(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -84,10 +84,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         User user = new User(Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
-        // return contact
+        // return user
         return user;
     }
-
+    // Getting single user by username and password match
     public User getUser(String name, String pass) {
         User user;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -101,7 +101,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         } else {
             user = null;
         }
-        // return contact
+        // return user
         return user;
     }
 
@@ -122,16 +122,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 user.setPassword(cursor.getString(2));
                 user.setEmail(cursor.getString(3));
                 user.setStreet(cursor.getString(4));
-                // Adding contact to list
+                // Adding user to list
                 userList.add(user);
             } while (cursor.moveToNext());
         }
 
-        // return contact list
+        // return user list
         return userList;
     }
 
-    // Deleting single contact
+    // Deleting single user
     public void deleteUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_USERS, KEY_ID + " = ?",
