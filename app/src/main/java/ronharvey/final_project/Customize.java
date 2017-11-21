@@ -29,11 +29,7 @@ public class Customize extends AppCompatActivity {
     boolean boo_peppers = false;
     boolean boo_onions = false;
     User user;
-
-
-
-
-
+    String coup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +37,8 @@ public class Customize extends AppCompatActivity {
         setContentView(R.layout.activity_customize);
 
         user = getIntent().getExtras().getParcelable("loginM");
+        coup = getIntent().getExtras().getString("couponM");
+
 
         CheckBox pepperoni = (CheckBox)findViewById(R.id.chk_pepperoni);
         pepperoni.setChecked(true);
@@ -254,8 +252,10 @@ public class Customize extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent2= new Intent(Customize.this,Payment.class);
+                intent2.putExtra("loginC", user);
+                intent2.putExtra("couponC", coup);
                 intent2.putExtra("TOTAL_PRICE",Double.toString(total_price));
-                intent2.putExtra("login", user);
+
                 startActivity(intent2);
             }
         });

@@ -27,13 +27,15 @@ public class Payment extends Activity implements View.OnClickListener{
     private TextView tv;
     private User user;
     private String totalprice;
+    private String coupon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //user = getIntent().getExtras().getParcelable("login");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        user = getIntent().getExtras().getParcelable("login");
+        user = getIntent().getExtras().getParcelable("loginC");
+        coupon = getIntent().getExtras().getString("couponC");
         totalprice = getIntent().getExtras().getString("TOTAL_PRICE");
         final Button btn_login_order = (Button) findViewById(R.id.btn_order);
         btn_login_order.setOnClickListener(this);
@@ -86,11 +88,17 @@ public class Payment extends Activity implements View.OnClickListener{
                 }
                 else {
                     if (radioChoice.equals("delivery")) {
-                        tv.setText(user.getName()+"\n" + "Your order total is " + totalprice +  " and being delivered in 15 minutes to: " + user.getStreet() +"\n" + "Email receipt is being sent to " + user.getEmail());
+                        tv.setText(user.getName()+"\n" +
+                                "Your order total is " + totalprice +  " and being delivered in 15 minutes to: " + user.getStreet() +"\n" +
+                                "Email receipt is being sent to " + user.getEmail() +"\n" +
+                                "Coupon: " + coupon);
                     }
                     else if (radioChoice.equals("pickup")) {
 
-                        tv.setText(user.getName()+"\n" + "Your order total is " + totalprice +  " and is ready to be picked up in 15 minutes\n" + "Email receipt is being sent to " + user.getEmail());
+                        tv.setText(user.getName()+"\n" +
+                                "Your order total is " + totalprice +  " and is ready to be picked up in 15 minutes\n" +
+                                "Email receipt is being sent to " + user.getEmail() +"\n" +
+                                "Coupon: " + coupon);
                     }
                 }
                 break;

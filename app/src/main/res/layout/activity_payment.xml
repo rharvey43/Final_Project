@@ -106,7 +106,7 @@
         android:id="@+id/txt_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lines="4"
+        android:lines="6"
         android:text="aaaa" />
 
 </LinearLayout>

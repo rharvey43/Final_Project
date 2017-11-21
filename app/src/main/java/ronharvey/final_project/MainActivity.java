@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int CODE = 100;
     private static final int RETURN = 200;
     private TextView tv;
+    private String coupon = "No Coupon";
 
 
     @Override
@@ -59,23 +60,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_menu:
 
                 if (user == null){
-                    user.setName("guest");
-                    user.setPassword("a");
-                    user.setEmail("None Given");
-                    user.setStreet("Not Set");
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please login", Toast.LENGTH_LONG);
+                    toast.show();
+                    break;
                 }
                 Intent intent3 = new Intent(MainActivity.this, ronharvey.final_project.Menu.class);
                 intent3.putExtra("loginMain", user);
+                intent3.putExtra("coup", coupon);
                 startActivity(intent3);
                 break;
 
             case R.id.btn_coupons:
 
                 if (user == null){
-                    user.setName("guest");
-                    user.setPassword("a");
-                    user.setEmail("None Given");
-                    user.setStreet("Not Set");
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please login", Toast.LENGTH_LONG);
+                    toast.show();
+                    break;
                 }
                 Intent intent4 = new Intent(MainActivity.this, Coupons.class);
                 intent4.putExtra("loginMain", user);
