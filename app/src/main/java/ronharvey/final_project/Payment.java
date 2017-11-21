@@ -26,7 +26,7 @@ public class Payment extends Activity implements View.OnClickListener{
     private String radioChoice;
     private TextView tv;
     private User user;
-    private double totalprice;
+    private String totalprice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //user = getIntent().getExtras().getParcelable("login");
@@ -34,7 +34,7 @@ public class Payment extends Activity implements View.OnClickListener{
         setContentView(R.layout.activity_payment);
 
         user = getIntent().getExtras().getParcelable("login");
-        totalprice = Double.parseDouble(getIntent().getExtras().getString("TOTAL_PRICE"));
+        totalprice = getIntent().getExtras().getString("TOTAL_PRICE");
         final Button btn_login_order = (Button) findViewById(R.id.btn_order);
         btn_login_order.setOnClickListener(this);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
